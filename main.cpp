@@ -55,11 +55,36 @@ void CreateTriangle()
 
 void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
 {
+    GLuint theShader = glCreateShader(shaderType); 
+
+    const GLchar* theCode[1]; 
+    theCode[0] = shaderCode; 
+
+    GLint codeLength[1]; 
+    codeLength[0] = strlen(shaderCode); 
+
+    glShaderSource(theShader, 1, theCode, codeLength);
+    glCompileShader(theShader); 
     return; 
+
+    // Error Checking 
+    GLint result = 0;
+    GLchar eLog[1024] = { 0 };
+
+    
+    glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
+    if (!result)
+    {
+        glGetShaderInfoLog(theShader, sizeof(eLog), nullptr, eLog);
+        printf("Error compiling the %d shader: '%s'\n", shaderType, eLog);
+        return;
+    }
+
+    glAttachShader(theProgram, theShader); 
 }
 
 
-void compileShaders()
+void CompileShaders()
 {
     shader = glCreateProgram(); 
 
@@ -75,7 +100,25 @@ void compileShaders()
     GLint result = 0; 
     GLchar eLog[1024] = { 0 }; 
 
+    // Link Program
     glLinkProgram(shader); 
+    glGetProgramiv(shader, GL_LINK_STATUS, &result);
+    if (!result)
+    {
+        glGetProgramInfoLog(shader, sizeof(eLog), nullptr, eLog); 
+        printf("Error linking program: '%s'\n", eLog); 
+        return; 
+    }
+
+    // Validate Program
+    glValidateProgram(shader);
+    glGetProgramiv(shader, GL_VALIDATE_STATUS, &result);
+    if (!result)
+    {
+        glGetProgramInfoLog(shader, sizeof(eLog), nullptr, eLog);
+        printf("Error validating program: '%s'\n", eLog);
+        return;
+    }
 }
 
 int main()
@@ -122,8 +165,11 @@ int main()
         return 1;
     }
      
-    // set viewport size 
+    // Create viewport
     glViewport(0, 0, bufferWidth, bufferHeight); 
+
+    CreateTriangle(); 
+    CompileShaders(); 
 
     // Loop until window closed     
     while (!glfwWindowShouldClose(mainWindow))
@@ -134,6 +180,14 @@ int main()
         // clear Window
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT); 
+
+        glUseProgram(shader); 
+
+        glBindVertexArray(VAO); 
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0); 
+
+        glUseProgram(0);
 
         glfwSwapBuffers(mainWindow); 
     }
