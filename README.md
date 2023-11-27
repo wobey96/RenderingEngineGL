@@ -38,7 +38,7 @@ I was always mesmerized by computer graphics and had a deep desire to learn abou
 - step 1
 - step 2
 ### Linux
-- Not supported :(
+- Not supported :(. Future Plans is to make a cross platform Vulkan Engine with cmake (January 2024 - February/March 2024 timeline)
 
 ## References
 
