@@ -69,12 +69,12 @@ int MyWindow::Initialise()
 
 GLfloat MyWindow::getBufferWidth()
 {
-	return (GLfloat)bufferWidth; 
+	return  static_cast<GLfloat>(bufferWidth);
 }
 
 GLfloat MyWindow::getBufferHeight()
 {
-	return (GLfloat)bufferHeight;
+	return static_cast<GLfloat>(bufferHeight);
 }
 
 bool MyWindow::getShouldClose()

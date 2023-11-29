@@ -12,6 +12,7 @@ class Mesh
 {
 public:
 	Mesh() = default;
+	virtual ~Mesh();
 
 	/**
 	* @brief Generates and binds VAOs, VBOs, and IBOs on GPU
@@ -27,8 +28,6 @@ public:
 	* @brief Removes Data structures we've setup the GPU
 	*/
 	void ClearMesh(); 
-
-	virtual ~Mesh();
 
 private:
 	GLuint VAO{ 0 };

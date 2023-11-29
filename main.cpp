@@ -66,7 +66,7 @@ int main()
 	CreateShaders();
 
 	GLuint uniformProjection = 0, uniformModel = 0;
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (GLfloat)mainWindow->getBufferWidth() / mainWindow->getBufferHeight(), 0.1f, 100.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), mainWindow->getBufferWidth() / mainWindow->getBufferHeight(), 0.1f, 100.0f);
 
 	// Loop until window closed
 	while (!mainWindow->getShouldClose())

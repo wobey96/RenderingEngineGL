@@ -16,6 +16,7 @@ class Shader
 {
 public:
 	Shader() = default;
+	virtual ~Shader();
 
 	/**
 	* @brief Create shader from string on GPU by compiling with CompileShader()  
@@ -50,10 +51,7 @@ public:
 	/**
 	* @brief Removes shader program that's on GPU
 	*/
-	void ClearShader();
-
-
-	virtual ~Shader(); 
+	void ClearShader(); 
 
 private:
 	GLuint shaderID{ 0 };
