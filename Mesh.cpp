@@ -1,7 +1,5 @@
 #include "Mesh.h"
 
-
-
 void Mesh::CreateMesh(GLfloat* vertices, unsigned int* indices, unsigned int numOfVerticies, unsigned int numOfIndicies)
 {
 	indexCount = numOfIndicies; 
@@ -27,8 +25,6 @@ void Mesh::CreateMesh(GLfloat* vertices, unsigned int* indices, unsigned int num
 
 }
 
-
-
 void Mesh::RenderMesh()
 {
 	glBindVertexArray(VAO);
@@ -41,34 +37,23 @@ void Mesh::RenderMesh()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
   
-
-
 void Mesh::ClearMesh()
 {
 	// clearing data from GPU
-	if (IBO != 0)
+	if (IBO != 0 || VBO != 0 || VAO != 0)
 	{
-		glDeleteBuffers(1, &IBO); 
+		glDeleteBuffers(1, &IBO);
 		IBO = 0;
-	}
 
-	if (VBO != 0)
-	{
 		glDeleteBuffers(1, &VBO);
 		VBO = 0;
-	}
 
-	if (VAO != 0)
-	{
 		glDeleteVertexArrays(1, &VAO);
-		VAO = 0; 
+		VAO = 0;
 	}
 
 	indexCount = 0;
-	  
 }
-
-
 
 Mesh::~Mesh()
 {

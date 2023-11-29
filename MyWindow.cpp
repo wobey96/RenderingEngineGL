@@ -1,23 +1,26 @@
 #include "MyWindow.h"
 
-
-
 MyWindow::MyWindow(GLint windowWidth, GLint windowHeight)
 	:width(windowWidth), height(windowHeight)
 {
 
 }
 
-
+MyWindow::~MyWindow()
+{
+	// RAII
+	glfwDestroyWindow(mainWindow);
+	glfwTerminate();
+}
 
 int MyWindow::Initialise()
 {
 	// Initialise GLFW
 	if (!glfwInit())
 	{
-		printf("GLFW initialisation failed!");
+		std::cout << "GLFW initialisation failed!" << std::endl;
 		glfwTerminate();
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	// Setup GLFW window properties
@@ -33,9 +36,9 @@ int MyWindow::Initialise()
 	mainWindow = glfwCreateWindow(width, height, "Test Window", NULL, NULL);
 	if (!mainWindow)
 	{
-		printf("GLFW window creation failed!");
+		std::cout << "GLFW window creation failed!" << std::endl;
 		glfwTerminate();
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	// Get Buffer Size information
@@ -49,10 +52,10 @@ int MyWindow::Initialise()
 
 	if (glewInit() != GLEW_OK)
 	{
-		printf("GLEW initialisation failed!\n");
+		std::cout << "GLEW initialisation failed!" << std::endl;
 		glfwDestroyWindow(mainWindow);
 		glfwTerminate();
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	// enable depth testing so we know which ones to draw ontop of others
@@ -61,42 +64,25 @@ int MyWindow::Initialise()
 	// Setup Viewport size
 	glViewport(0, 0, bufferWidth, bufferHeight);
 
-	return 0;
+	return EXIT_SUCCESS;
 }
-
-
 
 GLfloat MyWindow::getBufferWidth()
 {
 	return (GLfloat)bufferWidth; 
 }
 
-
-
 GLfloat MyWindow::getBufferHeight()
 {
 	return (GLfloat)bufferHeight;
 }
-
-
 
 bool MyWindow::getShouldClose()
 {
 	return glfwWindowShouldClose(mainWindow);
 }
 
-
-
 void MyWindow::swapBuffers()
 {
 	glfwSwapBuffers(mainWindow);
-}
-
-
-
-MyWindow::~MyWindow()
-{
-	// RAII
-	glfwDestroyWindow(mainWindow);
-	glfwTerminate();
 }
