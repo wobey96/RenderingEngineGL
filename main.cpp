@@ -16,9 +16,9 @@
 
 const float toRadians = 3.14159265f / 180.0f;
 
-MyWindow mainWindow;
+
 std::vector<Mesh*> meshList;
-std::vector<Shader> shaderList;
+std::vector<Shader*> shaderList;
 
 // Vertex Shader
 static const char* vShader = "Shaders/shader.vert";
@@ -55,23 +55,22 @@ void CreateShaders()
 {
 	Shader* shader1 = new Shader();
 	shader1->createFromFiles(vShader, fShader);
-	shaderList.push_back(*shader1);
+	shaderList.push_back(shader1);
 }
 
 int main()
 {
-
-	mainWindow = MyWindow(800, 600);
-	mainWindow.Initialise();
+	MyWindow *mainWindow = new MyWindow(800, 600);
+	mainWindow->Initialise();
 
 	CreateObjects();
 	CreateShaders();
 
 	GLuint uniformProjection = 0, uniformModel = 0;
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (GLfloat)mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (GLfloat)mainWindow->getBufferWidth() / mainWindow->getBufferHeight(), 0.1f, 100.0f);
 
 	// Loop until window closed
-	while (!mainWindow.getShouldClose())
+	while (!mainWindow->getShouldClose())
 	{
 		// Get + Handle User Input
 		glfwPollEvents();
@@ -80,9 +79,9 @@ int main()
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		shaderList[0].UseShader();
-		uniformModel = shaderList[0].GetModelLocation();
-		uniformProjection = shaderList[0].GetProjectionLocation();
+		shaderList[0]->UseShader();
+		uniformModel = shaderList[0]->GetModelLocation();
+		uniformProjection = shaderList[0]->GetProjectionLocation();
 
 		glm::mat4 model(1.0f);
 
@@ -100,7 +99,7 @@ int main()
 
 		glUseProgram(0);
 
-		mainWindow.swapBuffers();
+		mainWindow->swapBuffers();
 	}
 
 	return 0;
