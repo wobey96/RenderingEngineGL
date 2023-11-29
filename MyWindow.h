@@ -11,7 +11,7 @@ public:
 	MyWindow() = default;
 	explicit MyWindow(GLint windowWidth, GLint windowHeight); 
 
-	int initialize(); 
+	int Initialise();
 
 	GLfloat getBufferWidth(); 
 	GLfloat getBufferHeight(); 

@@ -10,7 +10,7 @@ MyWindow::MyWindow(GLint windowWidth, GLint windowHeight)
 
 
 
-int MyWindow::initialize()
+int MyWindow::Initialise()
 {
 	// Initialise GLFW
 	if (!glfwInit())
