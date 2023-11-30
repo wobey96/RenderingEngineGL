@@ -101,5 +101,23 @@ int main()
 		mainWindow->swapBuffers();
 	}
 
+	// free meshList memory 
+	for (auto& i : meshList)
+	{
+		delete i; 
+	}
+	meshList.erase(meshList.begin(), meshList.end()); 
+
+	// free shaderList memory
+	for (auto& i : shaderList)
+	{
+		delete i;
+	}
+	shaderList.erase(shaderList.begin(), shaderList.end()); 
+
+	// free mainWindow 
+	delete mainWindow; 
+	mainWindow = nullptr; 
+
 	return 0;
 }
