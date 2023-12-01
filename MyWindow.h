@@ -3,9 +3,12 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <array>
 
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
+
+
 
 /**
 * @brief This class provides an interface/wrapper for working with the GLFW window
@@ -38,6 +41,8 @@ public:
 	*/
 	bool getShouldClose();
 
+	std::array<bool, 1024>& getKeys(); 
+
 	/**
 	* @brief Double buffering swap
 	*/
@@ -51,6 +56,27 @@ private:
 
 	GLint bufferWidth{ 0 };
 	GLint bufferHeight{ 0 };
+
+	std::array<bool, 1024> keys{}; // 1024 for range of ASCII characters  
+
+	GLfloat getXChange(); 
+	GLfloat getYChange(); 
+
+	// last coordinate
+	GLfloat lastX{ 0.0f };
+	GLfloat lastY{ 0.0f };
+
+	// current coordinate - last coordinates result
+	GLfloat xChange{ 0.0f };
+	GLfloat yChange{ 0.0f };
+
+	// check if this is the very first mosue movement
+	// if it's the very first movement, we don't want to do anything
+	bool mouseFirstMoved{ true }; 
+
+	void createCallBacks(); 
+	static void handleKeys(GLFWwindow* window, int key, int code, int action, int mode);
+	static void handleMouse(GLFWwindow* window, double xPos, double yPos); // xPos and yPos: curr mouse position from application
 };
 
 #endif // MY_WINDOW_H
