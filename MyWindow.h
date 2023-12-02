@@ -59,7 +59,14 @@ private:
 
 	std::array<bool, 1024> keys{}; // 1024 for range of ASCII characters  
 
+	/**
+	* @brief Public getter for xChange variable
+	*/
 	GLfloat getXChange(); 
+
+	/**
+	* @brief Public getter for yChange variable
+	*/
 	GLfloat getYChange(); 
 
 	// last coordinate
@@ -74,8 +81,19 @@ private:
 	// if it's the very first movement, we don't want to do anything
 	bool mouseFirstMoved{ true }; 
 
+	/**
+	* @brief passes how we handle keyboard and mouse function to glfw
+	*/
 	void createCallBacks(); 
+
+	/**
+	* @brief defines how we handle keyboard (if it's pressed, no pressed, and valid input)
+	*/
 	static void handleKeys(GLFWwindow* window, int key, int code, int action, int mode);
+
+	/**
+	* @brief defines how we handle mouse movement (if it's the first movement, change in x, and change in y positions
+	*/
 	static void handleMouse(GLFWwindow* window, double xPos, double yPos); // xPos and yPos: curr mouse position from application
 };
 
