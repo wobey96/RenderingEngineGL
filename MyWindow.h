@@ -37,6 +37,16 @@ public:
 	GLfloat getBufferHeight(); 
 
 	/**
+	* @brief Public getter for xChange variable
+	*/
+	GLfloat getXChange();
+
+	/**
+	* @brief Public getter for yChange variable
+	*/
+	GLfloat getYChange();
+
+	/**
 	* @brief Checks if we should close window based on results of polling input
 	*/
 	bool getShouldClose();
@@ -58,16 +68,7 @@ private:
 	GLint bufferHeight{ 0 };
 
 	std::array<bool, 1024> keys{}; // 1024 for range of ASCII characters  
-
-	/**
-	* @brief Public getter for xChange variable
-	*/
-	GLfloat getXChange(); 
-
-	/**
-	* @brief Public getter for yChange variable
-	*/
-	GLfloat getYChange(); 
+ 
 
 	// last coordinate
 	GLfloat lastX{ 0.0f };
