@@ -9,7 +9,7 @@ I was always mesmerized by computer graphics and had a deep desire to learn abou
 ## Render Samples
 
 ## Supported Features
-- [ ] 3D Camera
+- [x] 3D Camera
 - [ ] Image Loading
 - [ ] Framerate Component
 - [ ] Texture Mapping
