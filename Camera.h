@@ -20,10 +20,19 @@ public:
 		GLfloat startTurnSpeed);
 	virtual ~Camera();
 
+	/**
+	* @brief Gets user input from keybaord and calculates the direction based front vector * velocity fromwasd keys 
+	*/
 	void keyControl(std::array<bool, 1024>& keys, GLfloat deltaTime);
 
+	/**
+	* @brief Gets user input from mouse movement and calculates the direction based on x,y position, turn speed, and pitch
+	*/
 	void mouseControl(GLfloat xChange, GLfloat yChange);
 
+	/**
+	* @brief Calculates the view matrix using glm lookAt() function 
+	*/
 	glm::mat4 calculateViewMatrix(); 
 
 private:
@@ -40,6 +49,9 @@ private:
 	GLfloat movementSpeed{ 0.0f }; // keyboard movement speed (wasd keys)
 	GLfloat turnSpeed{ 0.0f }; // mouse movement speed (click and drag)
 
+	/**
+	* @brief Calculates camera position (front, right, and up components) 
+	*/
 	void update();
 };
 
