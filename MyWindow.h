@@ -8,8 +8,6 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
-
-
 /**
 * @brief This class provides an interface/wrapper for working with the GLFW window
 */

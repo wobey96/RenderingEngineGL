@@ -13,16 +13,28 @@ public:
 	explicit Texture(char* fileLoc);
 	virtual ~Texture(); 
 
+	/**
+	* @brief Load texture into memory with various presets
+	*/
 	void loadTexture(); 
+
+	/**
+	* @brief Use the texture that was loaded into GPU memory by making it active
+	*/
 	void useTexture(); 
+
+	/**
+	* @brief Delete the texture that was loaded into GPU memory
+	*/
 	void clearTexture(); 
+
 private:
-	GLuint textureID; 
+	GLuint textureID{ 0 };
 	int width{ 0 }; 
 	int height{ 0 };
 	int bitDepth{ 0 }; 
 
-	char* fileLocation{ "" };
+	char* fileLocation;
 };
 
 

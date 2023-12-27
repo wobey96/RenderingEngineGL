@@ -8,7 +8,13 @@ I was always mesmerized by computer graphics and had a deep desire to learn abou
 
 ## Render Samples
 ![Rainbow Render](Render_Samples/First_3D_Shape.png)
+
 Figure 1: First 3D Shape Render
+
+![Rainbow Render](Render_Samples/Texture_Map_3D.png)
+
+Figure 2: Texture on 3D Shape
+
 ## Supported Features
 - [x] 3D Camera
 - [ ] Image Loading
