@@ -11,18 +11,14 @@ I was always mesmerized by computer graphics and had a deep desire to learn abou
 
 Figure 1: First 3D Shape Render
 
-<<<<<<< HEAD
 ![Rainbow Render](Render_Samples/Texture_Map_3D.png)
 
 Figure 2: Texture on 3D Shape
 
-=======
->>>>>>> 3495ba4547007b50e0a2a4742946f6c16e210241
 ## Supported Features
 - [x] 3D Camera
-- [ ] Image Loading
-- [ ] Framerate Component
-- [ ] Texture Mapping
+- [x] Image Loading
+- [x] Texture Mapping
 - [ ] Ambient Lighting (Phone Reflection 1/3)
 - [ ] Diffuse Lighting (Phong Reflection 2/3)
 - [ ] Specular lighting (Phong Reflection 3/3)
