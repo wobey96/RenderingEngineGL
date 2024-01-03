@@ -25,7 +25,7 @@ Figure 3: Ambient Lighting
 - [x] 3D Camera
 - [x] Image Loading
 - [x] Texture Mapping
-- [ ] Ambient Lighting (Phone Reflection 1/3)
+- [x] Ambient Lighting (Phone Reflection 1/3)
 - [ ] Diffuse Lighting (Phong Reflection 2/3)
 - [ ] Specular lighting (Phong Reflection 3/3)
 - [ ] Point and Spot lights
