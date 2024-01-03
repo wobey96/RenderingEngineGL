@@ -15,6 +15,12 @@ Figure 1: First 3D Shape Render
 
 Figure 2: Texture on 3D Shape
 
+![Ambient Render](Render_Samples/AmbientLight.png)
+
+Figure 3: Ambient Lighting
+
+
+
 ## Supported Features
 - [x] 3D Camera
 - [x] Image Loading

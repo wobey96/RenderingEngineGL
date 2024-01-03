@@ -17,6 +17,7 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Texture.h"
+#include "Light.h"
 
 const float toRadians = 3.14159265f / 180.0f;
 
@@ -67,7 +68,6 @@ void CreateShaders()
 
 int main()
 { 
-
 	MyWindow *mainWindow = new MyWindow(800, 600);
 	mainWindow->Initialise();
 
@@ -82,7 +82,9 @@ int main()
 	Texture dirtTexture = Texture((char*)("Textures/dirt.png"));
 	dirtTexture.loadTexture();
 
-	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;	
+	Light mainLight = Light(1.0f, 1.0f, 1.0f, 0.4f); // shouldn't change much 
+
+	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformAmbientIntensity = 0, uniformAmbidentColor = 0;	
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), mainWindow->getBufferWidth() / mainWindow->getBufferHeight(), 0.1f, 100.0f);
 
 	// Loop until window closed
@@ -109,6 +111,11 @@ int main()
 		uniformModel = shaderList[0]->GetModelLocation();
 		uniformProjection = shaderList[0]->GetProjectionLocation();
 		uniformView = shaderList[0]->GetViewLocation(); 
+		uniformAmbidentColor = shaderList[0]->GetAmbientColourLocation(); 
+		uniformAmbientIntensity = shaderList[0]->GetAmbientIntensityLocation(); 
+
+		// putting light into action 
+		mainLight.UseLight(uniformAmbientIntensity, uniformAmbidentColor); 
 		
 
 		glm::mat4 model(1.0f);
@@ -132,6 +139,8 @@ int main()
 
 		mainWindow->swapBuffers();
 	}
+
+	////////// ---------- FREE MEMORY ---------- //////////
 
 	// free meshList memory 
 	for (auto& i : meshList)
