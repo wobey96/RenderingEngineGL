@@ -52,6 +52,10 @@ public:
 
 	GLint GetAmbientColourLocation(); 
 
+	GLint GetDiffuseIntensityLocation();
+
+	GLint GetDirectionLocation();
+
 	/**
 	* @brief Uses shader program that's on GPU that contains .vert and .frag shader programs
 	*/
@@ -69,6 +73,8 @@ private:
 	GLuint uniformView{ 0 };
 	GLuint uniformAmbientIntensity{ 0 };
 	GLuint uniformAmbientColour{ 0 };
+	GLuint uniformDiffuseIntensity{ 0 };
+	GLuint uniformDirection{ 0 };
 
 	/**
 	* @brief Creates empty program on GPU, adds already created vertex and fragment shader to empty program,
