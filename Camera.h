@@ -18,7 +18,7 @@ public:
 	Camera() = default; 
 	explicit Camera(glm::vec3 startPosition, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch, GLfloat startMoveSpeed, 
 		GLfloat startTurnSpeed);
-	virtual ~Camera();
+	~Camera();
 
 	/**
 	* @brief Gets user input from keybaord and calculates the direction based front vector * velocity fromwasd keys 
@@ -34,6 +34,8 @@ public:
 	* @brief Calculates the view matrix using glm lookAt() function 
 	*/
 	glm::mat4 calculateViewMatrix(); 
+
+	glm::vec3 getCameraPosition(); 
 
 private:
 	glm::vec3 position{ glm::vec3(0.0f, 0.0f, 0.0f) };

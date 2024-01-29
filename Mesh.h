@@ -12,7 +12,7 @@ class Mesh
 {
 public:
 	Mesh() = default;
-	virtual ~Mesh();
+	~Mesh();
 
 	/**
 	* @brief Generates and binds VAOs, VBOs, and IBOs on GPU

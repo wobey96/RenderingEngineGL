@@ -16,7 +16,7 @@ class Shader
 {
 public:
 	Shader() = default;
-	virtual ~Shader();
+	~Shader();
 
 	/**
 	* @brief Create shader from string on GPU by compiling with CompileShader()  
@@ -36,25 +36,31 @@ public:
 	/**
 	* @brief Gets location of projection matrix from .vert file
 	*/
-	GLint GetProjectionLocation(); 
+	GLuint GetProjectionLocation();
 
 	/**
 	* @brief Gets location of model matrix from .vert file
 	*/
-	GLint GetModelLocation(); 
+	GLuint GetModelLocation();
 
 	/**
 	* @brief Gets location of view matrix from .vert file
 	*/
-	GLint GetViewLocation(); 
+	GLuint GetViewLocation();
 
-	GLint GetAmbientIntensityLocation(); 
+	GLuint GetAmbientIntensityLocation();
 
-	GLint GetAmbientColourLocation(); 
+	GLuint GetAmbientColourLocation();
 
-	GLint GetDiffuseIntensityLocation();
+	GLuint GetDiffuseIntensityLocation();
 
-	GLint GetDirectionLocation();
+	GLuint GetDirectionLocation();
+
+	GLuint GetSpecularIntensityLocation(); 
+
+	GLuint GetShininessLocation(); 
+
+	GLuint GetEyePositionLocation();
 
 	/**
 	* @brief Uses shader program that's on GPU that contains .vert and .frag shader programs
@@ -67,14 +73,21 @@ public:
 	void ClearShader(); 
 
 private:
+	// World Based Values 
 	GLuint shaderID{ 0 };
 	GLuint uniformProjection{ 0 };
 	GLuint uniformModel{ 0 }; 
 	GLuint uniformView{ 0 };
+	GLuint uniformEyePosition{ 0 };
+
+	// Light Values
 	GLuint uniformAmbientIntensity{ 0 };
 	GLuint uniformAmbientColour{ 0 };
 	GLuint uniformDiffuseIntensity{ 0 };
 	GLuint uniformDirection{ 0 };
+	GLuint uniformSpecularIntensity{ 0 }; 
+	GLuint uniformShininess{ 0 }; 
+	
 
 	/**
 	* @brief Creates empty program on GPU, adds already created vertex and fragment shader to empty program,

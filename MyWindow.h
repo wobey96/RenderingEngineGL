@@ -16,7 +16,7 @@ class MyWindow
 public:
 	MyWindow() = default;
 	explicit MyWindow(GLint windowWidth, GLint windowHeight); 
-	virtual ~MyWindow();
+	~MyWindow();	
 
 	/**
 	* @brief Initializes this class by setting up a GLFW window, properties, core profile, forward compatability

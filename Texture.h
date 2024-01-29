@@ -11,7 +11,7 @@ class Texture
 public:
 	Texture() = default; 
 	explicit Texture(char* fileLoc);
-	virtual ~Texture(); 
+	~Texture(); 
 
 	/**
 	* @brief Load texture into memory with various presets

@@ -9,6 +9,8 @@ public:
 	explicit Material(GLfloat sIntensity, GLfloat shine); 
 	~Material(); 
 
+	void UseMaterial(GLuint specularIntensityLocation, GLuint shininessLocation); 
+
 private:
 	GLfloat specularintensity{ 0 }; // how bright the light is
 	GLfloat shininess{ 0 }; // how collected the light is - aka (the cool kids call) specular power 
