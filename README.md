@@ -43,4 +43,4 @@ Figure 4: Diffuse Lighting
 - [learn OpenGL Website] https://learnopengl.com/
 
 ## Updates 01/29/2024
-### I won't be making any updates from here. There is still a lot I could have done like finishing the phong reflection model (specular lighting), point light, spot light, and shadows) but I wanted to start on more modern things. This was an education exercidse before I got into ray tracing and more modern graphics stuff. Thanks!
+### I won't be making any updates from here. There is still a lot I could have done like finishing the phong reflection model with specular lighting portion, point light, spot light, and shadows but I wanted to start on more modern things. This was an education exercidse before I got into ray tracing and more modern graphics stuff. Thanks!
