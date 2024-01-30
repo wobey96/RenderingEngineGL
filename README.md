@@ -20,6 +20,9 @@ Figure 2: Texture on 3D Shape
 
 Figure 3: Ambient Lighting
 
+![Diffuse Render](Render_Samples/DiffuseLight.png)
+
+Figure 4: Diffuse Lighting
 
 
 ## Supported Features
@@ -27,17 +30,6 @@ Figure 3: Ambient Lighting
 - [x] Image Loading
 - [x] Texture Mapping
 - [x] Ambient Lighting (Phone Reflection 1/3)
-- [ ] Diffuse Lighting (Phong Reflection 2/3)
-- [ ] Specular lighting (Phong Reflection 3/3)
-- [ ] Point and Spot lights
-- [ ] Importing 3D Models
-- [ ] Directional Shadow Mapping
-- [ ] Omnidirectional Shadow Mapping
-- [ ] Cubemaps
-- [ ] Skybox
-- [ ] Brut Force Path Tracer (Ray Tracing in One Weekend)
-- [ ] More Sophistocated Path Tracer (Ray Tracing: The Next Week)
-- [ ] Very Serious Path Tracer (Ray Tracing: The Rest of Your Life)
 
 ## Dependencies
 - OpenGL 3.3+
@@ -46,11 +38,9 @@ Figure 3: Ambient Lighting
 - assimp
 - Visual Studio 2022
 
-## Build Instructions 
-### Windows 
-- step 1
-- step 2
-### Linux
-- Not supported :(. Future Plans is to make a cross platform Vulkan Engine with cmake (January 2024 - February/March 2024 timeline)
-
 ## References
+- [Udemy OpenGL in C++ Course] https://www.udemy.com/course/graphics-with-modern-opengl/?kw=OpenGL&src=sac
+- [learn OpenGL Website] https://learnopengl.com/
+
+## Updates 01/29/2024
+### I won't be making any updates from here. This was an education exercidse before I got into ray tracing and more modern grphics stuff. Thanks!
