@@ -20,6 +20,12 @@ Figure 2: Texture on 3D Shape
 
 Figure 3: Ambient Lighting
 
+![Diffuse Render](Render_Samples/DiffuseLight.png)
+
+Figure 4: Diffuse Lighting
+
+
+
 
 
 ## Supported Features
