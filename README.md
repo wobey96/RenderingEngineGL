@@ -1,5 +1,5 @@
 # RenderingEngineGL
-My first rendering engine! RenderingEngineGL is a real time 3D rendering engine made with OpenGL. It's based on the learnopengl, Computer Graphics with Modern OpenGL and C++ udemy courses. 
+My first renderer! RenderingEngineGL is a 3D renderer made with OpenGL. It's based on the learnopengl tutorial and "Computer Graphics with Modern OpenGL and C++" udemy course by Ben Cook. I've mostly upgraded the code using modern C++ features and a more professional coding style.   
 
 ## Why? 
 I was always mesmerized by computer graphics and had a deep desire to learn about them. It's the first thing I noticed when I was a kid playing Kingdom Hearts II (Playstation 2) and Star Fox Adventure (GameCube). This is the start of my journey to satisfy that desire :)!!!
