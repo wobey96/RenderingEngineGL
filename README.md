@@ -1,4 +1,7 @@
 # RenderingEngineGL
+
+![GitHub License](https://img.shields.io/github/license/wobey96/RenderingEngineGL)
+
 My first renderer! RenderingEngineGL is a 3D renderer made with OpenGL. It's based on the learnopengl tutorial and "Computer Graphics with Modern OpenGL and C++" udemy course by Ben Cook. I've mostly upgraded the code using modern C++ features and a more professional coding style.   
 
 ## Why? 
